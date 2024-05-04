@@ -49,7 +49,6 @@ export async function run(): Promise<void> {
             }
         }
 
-
         core.debug(`Fetching ${url} ...`);
 
         const controller = new AbortController();
