@@ -1,0 +1,18 @@
+on: [push]
+
+jobs:
+  download_file_job:
+    runs-on: ubuntu-latest
+    name: Demo of the file download action
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Download file
+        uses: ./ # Uses an action in the root directory
+        id: dl
+        with:
+          url: 'https://example.com'
+
+      - name: Print the destination path
+        run: echo "Saved to ${{ steps.hello.outputs.destination }}"
