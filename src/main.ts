@@ -1,11 +1,10 @@
 import * as core from '@actions/core';
 import * as cache from '@actions/cache';
-import { HttpClient } from '@actions/http-client';
 import * as path from 'node:path';
-import fetch, { Headers } from 'node-fetch';
+import fetch, {Headers} from 'node-fetch';
 import contentDisposition from 'content-disposition';
 import * as fs from 'fs';
-import { createHash } from 'crypto';
+import {createHash} from 'crypto';
 
 type CacheEntry = {
     /* The version of the cache entry. */
@@ -38,7 +37,7 @@ export async function run(): Promise<void> {
             throw new Error(`Invalid max-age: ${maxAge}`);
         }
 
-        const headers = new Headers({ 'User-Agent': 'download-file-action' });
+        const headers = new Headers({'User-Agent': 'download-file-action'});
         if (headersStr !== '') {
             for (const header of headersStr.split(/\r?\n/)) {
                 const match = /([^:]+):\s*(.+)/.exec(header);
@@ -90,9 +89,10 @@ export async function run(): Promise<void> {
             uniquenessTag = response.headers.get('last-modified');
         }
 
-        const cacheHash = createHash('sha256').update(url).update(headersStr);
+        const cacheHash = createHash('sha256').update(url)
+            .update(headersStr);
 
-        await fs.promises.mkdir('.download-file-action', { recursive: true });
+        await fs.promises.mkdir('.download-file-action', {recursive: true});
         const metaFilename = path.join('.download-file-action', filename);
 
         const additionalCacheKey = core.getInput('additional-cache-key');
