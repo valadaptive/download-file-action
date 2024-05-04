@@ -15,4 +15,4 @@ jobs:
                   url: 'https://example.com'
 
             - name: Print the destination path
-              run: echo "Saved to ${{ steps.hello.outputs.destination }}"
+              run: echo "Saved to ${{ steps.dl.outputs.destination }}"
