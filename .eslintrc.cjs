@@ -13,7 +13,8 @@ module.exports = {
     },
     ignorePatterns: [
         '**/dist/**/*.js',
-        '**/dist/**/*.ts'
+        '**/dist/**/*.ts',
+        '.eslintrc.cjs'
     ],
     overrides: [
         {
@@ -24,7 +25,7 @@ module.exports = {
             parserOptions: {
                 sourceType: 'module',
             }
-        }
+        },
     ],
     rules: {
         '@typescript-eslint/no-unused-vars': ['error', {'args': 'after-used', 'varsIgnorePattern': '__.*$'}],
