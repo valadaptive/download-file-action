@@ -82,6 +82,7 @@ export async function run(): Promise<void> {
                 filename = decodeURIComponent(baseName);
             }
         }
+        filename = path.resolve(filename);
 
         // Check the cache
         let uniquenessTag = response.headers.get('etag');

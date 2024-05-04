@@ -90711,6 +90711,7 @@ async function run() {
                 filename = decodeURIComponent(baseName);
             }
         }
+        filename = external_node_path_.resolve(filename);
         // Check the cache
         let uniquenessTag = response.headers.get('etag');
         if (!uniquenessTag) {
