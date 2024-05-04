@@ -1,24 +1,37 @@
-name: 'The name of your action here'
-description: 'Provide a description here'
-author: 'Your name or organization here'
+name: 'Download File'
+description: 'Cross-platform way to download and cache a file from a URL.'
+author: 'valadaptive'
 
-# Add your action's branding here. This will appear on the GitHub Marketplace.
 branding:
-  icon: 'heart'
-  color: 'red'
+    icon: 'download'
+    color: 'purple'
 
-# Define your inputs here.
 inputs:
-  milliseconds:
-    description: 'Your input description here'
-    required: true
-    default: '1000'
+    url:
+        description: 'The URL to fetch'
+        required: true
+    destination:
+        description:
+            'The path to save the file to. Will be [default directory]/[URL file
+            name] if not provided'
+        required: false
+    headers:
+        description: 'The headers to send with the request'
+        required: false
+    additional-cache-key:
+        description: 'Additional key to match against when caching the file'
+        required: false
+    max-age:
+        description:
+            'The maximum age of the cached file in seconds. If omitted or the
+            empty string, the file will be cached indefinitely. If set to 0, the
+            file will always be re-downloaded.'
+        required: false
 
-# Define your outputs here.
 outputs:
-  time:
-    description: 'Your output description here'
+    destination:
+        description: 'The path the file was saved to.'
 
 runs:
-  using: node20
-  main: dist/index.js
+    using: node20
+    main: dist/index.js
