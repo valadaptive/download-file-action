@@ -90716,7 +90716,8 @@ async function run() {
         if (!uniquenessTag) {
             uniquenessTag = response.headers.get('last-modified');
         }
-        const cacheHash = (0,external_crypto_.createHash)('sha256').update(url).update(headersStr);
+        const cacheHash = (0,external_crypto_.createHash)('sha256').update(url)
+            .update(headersStr);
         await external_fs_.promises.mkdir('.download-file-action', { recursive: true });
         const metaFilename = external_node_path_.join('.download-file-action', filename);
         const additionalCacheKey = core.getInput('additional-cache-key');
