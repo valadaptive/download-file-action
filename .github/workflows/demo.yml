@@ -16,3 +16,6 @@ jobs:
 
             - name: Print the destination path
               run: echo "Saved to ${{ steps.dl.outputs.destination }}"
+
+            - name: Print the destination file
+              run: cat ${{ steps.dl.outputs.destination }}
