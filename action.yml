@@ -1,4 +1,4 @@
-name: 'Download File'
+name: 'Download and Cache File'
 description: 'Cross-platform way to download and cache a file from a URL.'
 author: 'valadaptive'
 
